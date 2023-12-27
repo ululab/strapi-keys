@@ -47,11 +47,11 @@ function generateKeyIfMissing(existingValue, type) {
  */
 function readEnvFile() {
   try {
-    return fs.readFileSync('.env', 'utf-8');
+    let content = fs.readFileSync('.env', 'utf-8');
+    return content ? content : readEnvExampleFile()
   } catch (error) {
     console.error('Error while reading the .env file - ', error.message);
     return readEnvExampleFile();
-    return {};
   }
 }
 
@@ -65,7 +65,7 @@ function readEnvExampleFile() {
     return fs.readFileSync('.env.example', 'utf-8');
   } catch (error) {
     console.error('Error while reading the .env.example file - ', error.message);
-    return {};
+    return '';
   }
 }
 
