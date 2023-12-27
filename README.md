@@ -1,2 +1,2 @@
-# strapi-keys-gen
+# strapi-keys
 Genarete keys file .env
