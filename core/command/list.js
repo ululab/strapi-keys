@@ -1,4 +1,4 @@
-const argvOptions = [
+module.exports = [
     {
         value: '--help',
         description: 'Elenca tutti i comandi disponibili'
@@ -28,5 +28,3 @@ const argvOptions = [
         description: 'Stampa a video la situazone delle chiavi: controlla le chiavi e ne stampa i valore presente'
     }
 ];
-
-module.exports = argvOptions;

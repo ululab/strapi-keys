@@ -2,17 +2,16 @@ const envKeysToGenerate = require('./envKeys')
 
 const functions = require('./functions')
 
-const options = require('./processArgv')
+const options = require('./command/options')
 
-const useDryRun = options.useDryRun;
-
+const useDryRun = options.dryrun;
 
 /**
  * Handles the process of generating or updating environment keys.
  */
 function main() {
 
-  if (options.useHelp) {
+  if (options.help) {
     functions.help()
     return
   }
@@ -40,8 +39,8 @@ function main() {
   
   // Generate or update keys for missing environment variables
   envKeysToGenerate.forEach((keyConfig) => {
-    // If the --force option is not set, retrieve existing value for the key; otherwise, use undefined
-    let keyValueOrNull = options.force ? undefined : existingEnvVariables[keyConfig.name];
+    // If the --refresh option is not set, retrieve existing value for the key; otherwise, use undefined
+    let keyValueOrNull = options.refresh ? undefined : existingEnvVariables[keyConfig.name];
     
     // Generate a key or update it if missing
     const generatedValue = options.clear ? '' : functions.generateKeyIfMissing(keyValueOrNull, keyConfig.type);

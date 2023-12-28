@@ -1,8 +1,8 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const envKeysToGenerate = require('./envKeys')
-const optionsCommand = require('./optionsCommand');
-const options = require('./processArgv');
+const optionsCommand = require('./command/list');
+const options = require('./command/options');
 
 /**
  * Function to generate keys if they are missing.
