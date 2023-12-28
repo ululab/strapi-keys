@@ -40,7 +40,7 @@ function main() {
   // Generate or update keys for missing environment variables
   envKeysToGenerate.forEach((keyConfig) => {
     // If the --refresh option is not set, retrieve existing value for the key; otherwise, use undefined
-    let keyValueOrNull = options.refresh ? undefined : existingEnvVariables[keyConfig.name];
+    let keyValueOrNull = options.refresh || options.print ? undefined : existingEnvVariables[keyConfig.name];
     
     // Generate a key or update it if missing
     const generatedValue = options.clear ? '' : functions.generateKeyIfMissing(keyValueOrNull, keyConfig.type);
@@ -55,10 +55,15 @@ function main() {
   
   // If the --print option is set, print the generated keys
   if(options.print){
-    console.log(envKeysToGenerate.map(e => `${e.name}: ${e.value} \n` ));
+    envKeysToGenerate.forEach(e => {
+      console.log(`${e.name}=${e.value}`)
+    });
+    return
   }
   // Write the updated keys to the .env file
-  functions.writeEnvFile();
+  if (options.refresh || options.generate) {
+    functions.writeEnvFile();
+  }
 
 }
 

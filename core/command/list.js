@@ -1,7 +1,8 @@
 module.exports = [
     {
         value: '--help',
-        description: 'Elenca tutti i comandi disponibili'
+        description: 'Elenca tutti i comandi disponibili',
+        default: true
     },
     {
         value: '--refresh',
@@ -9,7 +10,7 @@ module.exports = [
     },
     {
         value: '--generate',
-        description: 'Genera le chiavi dove mancano'
+        description: 'Genera le chiavi dove mancano',
     },
     {
         value: '--clear',

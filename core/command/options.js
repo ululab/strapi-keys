@@ -8,4 +8,9 @@ for (const command of commadList) {
     options[ command.value.replace(/-/g, '')] = processArgv.includes(command.value);
 }
 
+// Set default operation to genarete
+if (!processArgv.length || !Object.values(options).includes(true)) {
+    options.help = true
+}
+
 module.exports = options;
