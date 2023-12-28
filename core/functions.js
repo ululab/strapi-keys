@@ -1,12 +1,13 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const envKeysToGenerate = require('./envKeys')
-const optionsCommand = require('./optionsCommand')
+const optionsCommand = require('./optionsCommand');
+const options = require('./processArgv');
 
 /**
  * Function to generate keys if they are missing.
  * 
- * @param {boolean} existingValue - The existing value for the key (if any).
+ * @param {string|undefined} existingValue - The existing value for the key (if any).
  * @param {string} type - The type of key to generate.
  * @returns {string|null} - The generated key or null if generation failed.
  */
@@ -28,6 +29,20 @@ function generateKeyIfMissing(existingValue, type) {
 
   return null;
 }
+
+function checkKeyType(value, type){
+
+  if (type == 'array:4<string:19>') {
+    const strings = value.split(',');
+    return strings.every(str => typeof str === 'string')
+  }
+
+  if(!value){
+    return false;
+  } 
+
+  return true;
+  }
 
 /**
  * Reads the content of the .env file.
@@ -134,7 +149,7 @@ function prepareNewContentEnv() {
   let content = readEnvFile();
 
   // Log trimmed content lines (for debugging or informational purposes)
-  console.log(content.split('\n').map((line) => { return line.trim() }));
+  // console.log(content.split('\n').map((line) => { return line.trim() }));
 
   // Process the content to update the keys
   content = content
@@ -195,7 +210,8 @@ function writeEnvFile() {
     // Write the updated content to the .env file
     fs.writeFileSync('.env', envContent);
     // Log a message indicating the keys generated and set in the .env file
-    console.log('Generated and set keys in the .env file');
+    let log = !options.clear ? 'Generated and set keys in the .env file' : 'Cleared keys in the .env file';
+    console.log(log);
 }
 
 /**
@@ -212,7 +228,8 @@ function help() {
 
 module.exports = {
     envVariablesFile, 
-    generateKeyIfMissing, 
+    generateKeyIfMissing,
+    checkKeyType, 
     writeEnvFile,
     help
 }

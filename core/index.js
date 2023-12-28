@@ -1,38 +1,51 @@
 const envKeysToGenerate = require('./envKeys')
-const optionsCommand = require('./optionsCommand')
+
 const functions = require('./functions')
 
-const argvOptions = optionsCommand.map(e => e.value)
+const options = require('./processArgv')
 
-const processArgv = process.argv.slice(2);
+const useDryRun = options.useDryRun;
 
-const useDryRun = processArgv.includes('--dryrun');
-
-const useHelp = processArgv.includes('--help');
 
 /**
  * Handles the process of generating or updating environment keys.
  */
 function main() {
 
-  const force = processArgv.includes('--refresh');
-
-  if (processArgv.includes('--help')) {
+  if (options.useHelp) {
     functions.help()
     return
   }
 
   // Retrieve existing environment variables from the .env file
   const existingEnvVariables = functions.envVariablesFile();
+
+  if(options.status){
+
+    let failed = false;
+    envKeysToGenerate.forEach((keyConfig) => {
+      let value = existingEnvVariables[keyConfig.name];
+      // console.log(value);
+       if (!functions.checkKeyType( value, keyConfig.type) ) {
+        failed = true;
+       }
+       
+      });
+      // DA RIVEDERE NON RIESCO A STAMPARE L'ARRAY 
+      // let log = !failed ? existingEnvVariables.map(e => `${e.name}: ${e.value} \n` ) : 'There is an error in the environment key, please run "npm run strapi-keys"'
+      // console.log(log)
+
+    return
+  }
   
   // Generate or update keys for missing environment variables
   envKeysToGenerate.forEach((keyConfig) => {
     // If the --force option is not set, retrieve existing value for the key; otherwise, use undefined
-    let keyValueOrNull = force ? undefined : existingEnvVariables[keyConfig.name];
+    let keyValueOrNull = options.force ? undefined : existingEnvVariables[keyConfig.name];
     
     // Generate a key or update it if missing
-    const generatedValue = functions.generateKeyIfMissing(keyValueOrNull, keyConfig.type);
-    
+    const generatedValue = options.clear ? '' : functions.generateKeyIfMissing(keyValueOrNull, keyConfig.type);
+
     // Update the value for the key in the configuration
     keyConfig.value = generatedValue;
     // Note: existingEnvVariables[keyConfig.name] = generatedValue; could be used to update the existing variables if needed
@@ -41,6 +54,10 @@ function main() {
   // Log the updated keys (for debugging or informational purposes)
   // console.log(envKeysToGenerate); 
   
+  // If the --print option is set, print the generated keys
+  if(options.print){
+    console.log(envKeysToGenerate.map(e => `${e.name}: ${e.value} \n` ));
+  }
   // Write the updated keys to the .env file
   functions.writeEnvFile();
 
