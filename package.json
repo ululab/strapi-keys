@@ -7,7 +7,8 @@
     "keys-gen": "node main",
     "keys-clear": "node main --clear",
     "keys-print": "node main --print",
-    "keys-refresh": "node main --force"
+    "keys-refresh": "node main --force",
+    "strapi-keys": "node main"
   },
   "repository": {
     "type": "git",

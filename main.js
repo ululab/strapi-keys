@@ -1,1 +1,3 @@
-require('./core/main');
+const main = require('./core');
+
+main();

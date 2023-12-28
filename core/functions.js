@@ -1,6 +1,7 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const envKeysToGenerate = require('./envKeys')
+const optionsCommand = require('./optionsCommand')
 
 /**
  * Function to generate keys if they are missing.
@@ -197,8 +198,21 @@ function writeEnvFile() {
     console.log('Generated and set keys in the .env file');
 }
 
+/**
+ * Prints the list of available commands with the different options
+ * @return {void}
+ */
+function help() {
+    console.log(`Usage: npm run strapi-keys -- [options]`);
+    console.log(`Options:`);
+    optionsCommand.forEach(e => {
+        console.log(`  ${e.value.padEnd(16, ' ')} ${e.description}`);
+    })
+}
+
 module.exports = {
     envVariablesFile, 
     generateKeyIfMissing, 
-    writeEnvFile
+    writeEnvFile,
+    help
 }

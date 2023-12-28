@@ -1,14 +1,26 @@
 const envKeysToGenerate = require('./envKeys')
+const optionsCommand = require('./optionsCommand')
 const functions = require('./functions')
+
+const argvOptions = optionsCommand.map(e => e.value)
+
+const processArgv = process.argv.slice(2);
+
+const useDryRun = processArgv.includes('--dryrun');
+
+const useHelp = processArgv.includes('--help');
 
 /**
  * Handles the process of generating or updating environment keys.
  */
 function main() {
-  // Get the --force option from the command-line arguments
-  console.log(process.argv);
-  const forceOptionIndex = process.argv.indexOf('--force');
-  const force = forceOptionIndex !== -1;
+
+  const force = processArgv.includes('--refresh');
+
+  if (processArgv.includes('--help')) {
+    functions.help()
+    return
+  }
 
   // Retrieve existing environment variables from the .env file
   const existingEnvVariables = functions.envVariablesFile();
@@ -31,7 +43,7 @@ function main() {
   
   // Write the updated keys to the .env file
   functions.writeEnvFile();
-  console.log(process.argv);
+
 }
 
 
@@ -43,7 +55,9 @@ function main() {
  * npm run strapi-keys --clear: imposta le chiavi vuote
  * npm run strapi-keys --check : controlla che tuttele chiavi siano correttamente settate
  */
-main();
+//main();
 
 
 // console.log(envKeysToGenerate)
+
+module.exports = main
