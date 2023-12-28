@@ -30,19 +30,25 @@ function generateKeyIfMissing(existingValue, type) {
   return null;
 }
 
+/**
+ * Check current status current variables keys
+ * 
+ * @param {string|null|undefined} value 
+ * @param {string} type 
+ * @returns 
+ */
 function checkKeyType(value, type){
-
-  if (type == 'array:4<string:19>') {
-    const strings = value.split(',');
-    return strings.every(str => typeof str === 'string')
-  }
-
-  if(!value){
+  if(!value) {
     return false;
   } 
 
-  return true;
+  if (type.startsWith('array')) {
+    let strings = value.split(',');
+    return strings.every(str => typeof str === 'string')
   }
+
+  return true;
+}
 
 /**
  * Reads the content of the .env file.
