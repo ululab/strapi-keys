@@ -1,6 +1,7 @@
 {
   "name": "strapi-env-keys",
   "version": "0.0.1",
+  "license": "MIT",
   "description": "Settings Strapi keys in .env",
   "main": "main.js",
   "scripts": {
