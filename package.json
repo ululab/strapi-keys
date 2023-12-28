@@ -4,7 +4,10 @@
   "description": "Settings Strapi keys in .env",
   "main": "main.js",
   "scripts": {
-    "test": "npm run strapi-keys"
+    "keys-gen": "node main",
+    "keys-clear": "node main --clear",
+    "keys-print": "node main --print",
+    "keys-refresh": "node main --force"
   },
   "repository": {
     "type": "git",
