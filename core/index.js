@@ -16,27 +16,14 @@ function main() {
     return
   }
 
-  // Retrieve existing environment variables from the .env file
-  const existingEnvVariables = functions.envVariablesFile();
-
   if(options.status){
-
-    let failed = false;
-    envKeysToGenerate.forEach((keyConfig) => {
-      let value = existingEnvVariables[keyConfig.name];
-      // console.log(value);
-       if (!functions.checkKeyType( value, keyConfig.type) ) {
-        failed = true;
-       }
-       
-      });
-      // DA RIVEDERE NON RIESCO A STAMPARE L'ARRAY 
-      // let log = !failed ? existingEnvVariables.map(e => `${e.name}: ${e.value} \n` ) : 'There is an error in the environment key, please run "npm run strapi-keys"'
-      // console.log(log)
-
+    functions.checkStatusKeysEnv();
     return
   }
   
+  // Retrieve existing environment variables from the .env file
+  const existingEnvVariables = functions.envVariablesFile();
+
   // Generate or update keys for missing environment variables
   envKeysToGenerate.forEach((keyConfig) => {
     // If the --refresh option is not set, retrieve existing value for the key; otherwise, use undefined

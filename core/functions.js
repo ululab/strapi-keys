@@ -232,10 +232,46 @@ function help() {
     })
 }
 
+/**
+ * Check status keys in .env
+ * @return {void}
+ */
+function checkStatusKeysEnv() {
+
+  let existingEnvVariables = envVariablesFile();  
+
+  let failed = false;
+
+  console.error(`  STATUS   | KEY NAME`);
+
+  envKeysToGenerate.forEach((keyConfig) => {
+    let currentValue = existingEnvVariables[keyConfig.name];
+
+    if (!checkKeyType( currentValue, keyConfig.type) ) {
+      failed = true;
+      console.error(`x failed   | ${keyConfig.name}`);
+    } else {
+      console.info(`* success  | ${keyConfig.name}`);
+    }
+  });
+
+  if (failed) {
+    console.log('KO env variables');
+    console.log('There are some error in the environment key, please run "npm run strapi-keys"')
+  } else {
+    console.log('OK env variables');
+  }
+
+  // DA RIVEDERE NON RIESCO A STAMPARE L'ARRAY 
+  // let log = !failed ? existingEnvVariables.map(e => `${e.name}: ${e.value} \n` ) : 'There is an error in the environment key, please run "npm run strapi-keys"'
+  // console.log(log)
+  return
+}
+
 module.exports = {
     envVariablesFile, 
     generateKeyIfMissing,
-    checkKeyType, 
+    checkStatusKeysEnv, 
     writeEnvFile,
     help
 }
