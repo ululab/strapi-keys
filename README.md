@@ -1,5 +1,3 @@
-# strapi-keys
-## Genarete keys file .env  
 <p align="center">
   <a href="https://strapi.io/#gh-light-mode-only">
     <img src="https://strapi.io/assets/strapi-logo-dark.svg" width="318px" alt="Strapi logo" />
@@ -11,6 +9,11 @@
 </p>
 
 <h1 align="center"align="center">automatic .env file keys</h1>
+
+<p align="center">
+  <h2 align="center">Generate and manage keys quickly, conveniently and securely <br />
+  in the .env file of your strapi app</h2>
+</p>
 
 <br />
 
