@@ -1,5 +1,9 @@
 # strapi-keys
-Genarete keys file .env  
+## Genarete keys file .env  
+
+This is a great and convenient way to generate a random string in base64.
+
+This approach is generally secure, as the Node.js cryptographic module is designed to provide secure encryption capabilities.
 
 It uses the `crypto module` of Node.js, which in turn can depend on specific implementations of the operating system, reliable for generating randomness.
 
