@@ -20,16 +20,18 @@
 
 </p>
 
-
-
 <h2 align="center"align="center">automatic .env file keys</h2>
 
 <p align="center">
   <h3 align="center">Generate and manage keys quickly, conveniently and securely <br />
   in the .env file of your strapi app</h3>
 </p>
-    
-<br />
+
+<p align="center">
+  
+[![npm version](https://badge.fury.io/js/strapi-keys.svg)](https://www.npmjs.com/package/strapi-keys)
+
+</p>   
 
 `$ npm run strapi-keys -- --refresh `
 
