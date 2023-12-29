@@ -1,19 +1,3 @@
-<!--<p align="center">
-  <a href="https://strapi.io/#gh-light-mode-only">
-    <img src="https://strapi.io/assets/strapi-logo-dark.svg" width="318px" alt="Strapi logo" />
-  </a>
-  <a href="https://strapi.io/#gh-dark-mode-only">
-    <img src="https://strapi.io/assets/strapi-logo-light.svg" width="318px" alt="Strapi logo" />
-  </a>
-  
-</p>
-
-<p align="center">
-
-  <a href="https://strapi.io/#gh-dark-mode-only">
-
-  </a>
-</p>-->
 <p align="center">
 
   <img src="https://github.com/ululab/strapi-keys/assets/92667330/d38d136b-b32d-4e76-afc5-c87417d30dfc" width="80%">
