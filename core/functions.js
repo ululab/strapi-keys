@@ -213,11 +213,21 @@ function prepareNewContentEnv() {
  */
 function writeEnvFile() {
     let envContent = prepareNewContentEnv();
-    // Write the updated content to the .env file
-    if (!options.dryrun) fs.writeFileSync('.env', envContent);
-    // Log a message indicating the keys generated and set in the .env file
-    let log = !options.clear ? 'Generated and set keys in the .env file' : 'Cleared keys in the .env file';
-    console.log(log);
+    if( !options.clear && !options.dryrun ){
+      // Write the updated content to the .env file
+      fs.writeFileSync('.env', envContent);
+      // Log a message indicating the keys generated and set in the .env file
+      console.log ('Generated and set keys in the .env file');
+    }else if( !options.clear && options.dryrun ){
+      // Log a message indicating the keys generated but not setted in the .env file
+      console.log ('\nGenerated keys:');
+      printGeneratedEnvVariables();
+    }else if( options.clear && !options.dryrun ){
+      // Write the updated content to the .env file
+      fs.writeFileSync('.env', envContent);
+      // Log a message indicating the keys have been cleared and setted in the .env file
+      console.log ('Cleared keys in the .env file');
+    }
 }
 
 /**
@@ -263,12 +273,31 @@ function checkStatusKeysEnv() {
   } else {
     console.log('OK env key variables');
   }
+
+
+  return
+}
+
+function printKeyVariablesInEnvFile() {
+  let existingEnvVariables = envVariablesFile(); 
+  envKeysToGenerate.forEach((keyConfig) => {
+    let currentValue = existingEnvVariables[keyConfig.name];
+    console.log(`${keyConfig.name}=${currentValue}`)
+  });
+}
+
+function printGeneratedEnvVariables() {
+  envKeysToGenerate.forEach(e => {
+    console.log(`${e.name}=${e.value}`)
+  });
 }
 
 module.exports = {
     envVariablesFile, 
     generateKeyIfMissing,
     checkStatusKeysEnv, 
+    printGeneratedEnvVariables,
+    printKeyVariablesInEnvFile,
     writeEnvFile,
     help
 }
