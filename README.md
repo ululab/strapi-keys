@@ -1,4 +1,4 @@
-<p align="center">
+<!--<p align="center">
   <a href="https://strapi.io/#gh-light-mode-only">
     <img src="https://strapi.io/assets/strapi-logo-dark.svg" width="318px" alt="Strapi logo" />
   </a>
@@ -7,6 +7,15 @@
   </a>
   
 </p>
+
+<p align="center">
+
+  <a href="https://strapi.io/#gh-dark-mode-only">
+
+  </a>
+</p>-->
+
+![logo key](https://github.com/ululab/strapi-keys/assets/92667330/d38d136b-b32d-4e76-afc5-c87417d30dfc)
 
 <h2 align="center"align="center">automatic .env file keys</h2>
 
@@ -83,7 +92,8 @@ Options:
   - **`--status`** :          Print the status of keys: check keys
 
 ### --status
-![image](https://github.com/ululab/strapi-keys/assets/92667330/d74cb077-8c1b-42e8-b7a7-37b2b6662c7d)
+![image](https://github.com/ululab/strapi-keys/assets/92667330/c06f8a2c-dede-4f76-bc74-89d78f51c1fb)
+
 
 ## Settings
 In the Strapi package.json file add the "strapi-keys" command in the "scripts" field:
