@@ -240,32 +240,29 @@ function checkStatusKeysEnv() {
 
   let existingEnvVariables = envVariablesFile();  
 
-  let failed = false;
-
-  console.error(`  STATUS   | KEY NAME`);
+  let statusKeys = []
 
   envKeysToGenerate.forEach((keyConfig) => {
+
     let currentValue = existingEnvVariables[keyConfig.name];
 
-    if (!checkKeyType( currentValue, keyConfig.type) ) {
-      failed = true;
-      console.error(`x failed   | ${keyConfig.name}`);
-    } else {
-      console.info(`* success  | ${keyConfig.name}`);
-    }
+    let isOk = checkKeyType( currentValue, keyConfig.type);
+
+    statusKeys.push({
+      'KEY NAME': keyConfig.name, 
+      'STATUS': isOk ? 'success' : 'failed', 
+      'OK': isOk
+    })
   });
 
-  if (failed) {
-    console.log('KO env variables');
+  console.table(statusKeys,['KEY NAME', 'STATUS', 'OK'])
+
+  if (statusKeys.find(e => !e.OK)) {
+    console.log('KO env key variables');
     console.log('There are some error in the environment key, please run "npm run strapi-keys"')
   } else {
-    console.log('OK env variables');
+    console.log('OK env key variables');
   }
-
-  // DA RIVEDERE NON RIESCO A STAMPARE L'ARRAY 
-  // let log = !failed ? existingEnvVariables.map(e => `${e.name}: ${e.value} \n` ) : 'There is an error in the environment key, please run "npm run strapi-keys"'
-  // console.log(log)
-  return
 }
 
 module.exports = {
