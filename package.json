@@ -1,24 +1,32 @@
 {
-  "name": "strapi-env-keys",
-  "version": "0.0.1",
+  "name": "strapi-keys",
+  "version": "0.1.0",
   "license": "MIT",
-  "description": "Settings Strapi keys in .env",
+  "description": "Automatic management of keys in .env file",
   "main": "main.js",
   "scripts": {
-    "keys-gen": "node main",
+    "strapi-keys": "node main",
+    "keys-status": "node main --status",
+    "keys-gen": "node main --generate",
+    "keys-refresh": "node main --refresh",
     "keys-clear": "node main --clear",
-    "keys-print": "node main --print",
-    "keys-refresh": "node main --force",
-    "strapi-keys": "node main"
+    "keys-print": "node main --print"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ululab/strapi-keys.git"
   },
   "keywords": [
+    "strapi-keys",
     "strapi",
     "env",
-    "keys"
+    "environment",
+    "keys",
+    "helper",
+    "crypto",
+    "random",
+    "node",
+    "security"
   ],
   "author": "Ululab",
   "license": "ISC",
