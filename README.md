@@ -33,7 +33,7 @@ It uses the `crypto module` of Node.js, which in turn can depend on specific imp
 
 ## Install with npm:
 ```bash
-npm install @ululab/strapi-keys 
+npm i strapi-keys 
 ```
 ## Start to generate keys:
 
@@ -91,14 +91,14 @@ In the Strapi package.json file add the "strapi-keys" command in the "scripts" f
 ```json
 {
   "scripts": {
-    "strapi-keys": "node node_modules/@ululab/strapi-keys"
+    "strapi-keys": "node node_modules/strapi-keys"
   }
 }
 ```
 
 or run the command directly:
 ```bash
-node node_modules/@ululab/strapi-keys
+node node_modules/strapi-keys
 ```
 
 
