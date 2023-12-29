@@ -63,17 +63,26 @@ APP_KEYS=Zmm6D18zm3io82ZuSVmkLlrNjQ==,pNRI6xlBjSWcuTIDr2zv1hL1fA==,DwW/7JnK6dFPe
 ### List command options:
 ```npm
 npm run strapi-keys -- --help
-npm run strapi-keys -- --generate
-npm run strapi-keys -- --refresh
-npm run strapi-keys -- --clear
-npm run strapi-keys -- --print
-npm run strapi-keys -- --status
-npm run strapi-keys -- --dryrun
 ```
+
+Usage: npm run strapi-keys -- [options]
+
+Options:
+  - **`--help`** :           List all available commands
+  - **`--refresh`** :        Forcefully overwrite all keys
+  - **`--generate`** :        Generate keys where missing
+  - **`--clear`** :           Clear values of keys
+  - **`--dryrun`** :          Print involved variables based on the launched command
+    
+    example: `npm run strapi-keys -- --dryrun --refresh`
+  - **`--print`** :           Print newly generated variables to the console
+  - **`--status`** :          Print the status of keys: check keys
+
 ### --status
 ![image](https://github.com/ululab/strapi-keys/assets/92667330/d74cb077-8c1b-42e8-b7a7-37b2b6662c7d)
 
-In package.json file in Strapi:
+## Settings
+In the Strapi package.json file add the "strapi-keys" command in the "scripts" field:
 ```json
 {
   "scripts": {
@@ -82,7 +91,7 @@ In package.json file in Strapi:
 }
 ```
 
-or exute command
+or run the command directly:
 ```bash
 node node_modules/@ululab/strapi-keys
 ```
