@@ -1,5 +1,18 @@
 # strapi-keys
 ## Genarete keys file .env  
+<p align="center">
+  <a href="https://strapi.io/#gh-light-mode-only">
+    <img src="https://strapi.io/assets/strapi-logo-dark.svg" width="318px" alt="Strapi logo" />
+  </a>
+  <a href="https://strapi.io/#gh-dark-mode-only">
+    <img src="https://strapi.io/assets/strapi-logo-light.svg" width="318px" alt="Strapi logo" />
+  </a>
+  
+</p>
+
+<h1 align="center"align="center">automatic .env file keys</h1>
+
+<br />
 
 This is a great and convenient way to generate a random string in base64.
 
@@ -8,8 +21,6 @@ This approach is generally secure, as the Node.js cryptographic module is design
 It uses the `crypto module` of Node.js, which in turn can depend on specific implementations of the operating system, reliable for generating randomness.
 
 `openssl rand -base64 32` uses an operating system random number generator, which is often highly reliable at generating randomness.
-
-![image](https://strapi.io/assets/favicon-32x32.png)
 
 [Strapi openssl](https://docs.strapi.io/dev-docs/migration/v4/migration-guide-4.0.6-to-4.1.8#setting-secrets-for-non-development-environments)
 
