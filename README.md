@@ -14,8 +14,10 @@
   <h2 align="center">Generate and manage keys quickly, conveniently and securely <br />
   in the .env file of your strapi app</h2>
 </p>
-
+    
 <br />
+
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/92667330/293379276-d6225bfb-c668-4ca5-9407-3d5a15029835.gif)
 
 This is a great and convenient way to generate a random string in base64.
 
