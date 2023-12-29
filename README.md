@@ -8,7 +8,7 @@
   
 </p>
 
-<h1 align="center"align="center">automatic .env file keys</h1>
+<h2 align="center"align="center">automatic .env file keys</h2>
 
 <p align="center">
   <h3 align="center">Generate and manage keys quickly, conveniently and securely <br />
