@@ -1,8 +1,8 @@
-const { exec } = require('child_process');
+const { exec } = require("child_process");
 
-const param = '--refresh'; // Sostituisci con il parametro desiderato
+const param = "--refresh"; // Replace the parameter 
 
-// Concludere per cron task
+// Conclusion of cron task
 exec(`npm run strapi-keys -- ${param}`, (error, stdout, stderr) => {
   if (error) {
     console.error(`Errore: ${error.message}`);

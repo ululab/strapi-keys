@@ -1,31 +1,34 @@
 module.exports = [
     {
-        value: '--help',
-        description: 'Elenca tutti i comandi disponibili',
-        default: true
+      value: "--help",
+      description: "List all available commands",
+      default: true,
     },
     {
-        value: '--refresh',
-        description: 'Sovrascrivi forzatemente tutte le chiavi'
+      value: "--refresh",
+      description: "Forcefully overwrite all keys",
     },
     {
-        value: '--generate',
-        description: 'Genera le chiavi dove mancano',
+      value: "--generate",
+      description: "Generate keys where missing",
     },
     {
-        value: '--clear',
-        description: 'Elimina i valori delle chiavi'
+      value: "--clear",
+      description: "Clear values of keys",
     },
     {
-        value: '--dryrun',
-        description: 'Stampa a video le varabili coinvolte in base al comando lanciato'
+      value: "--dryrun",
+      description:
+        "Print involved variables based on the launched command",
     },
     {
-        value: '--print',
-        description: 'Stampa a video delle variabili nuove'
+      value: "--print",
+      description: "Print newly generated variables to the console",
     },
     {
-        value: '--status',
-        description: 'Stampa a video la situazone delle chiavi: controlla le chiavi e ne stampa i valore presente'
-    }
-];
+      value: "--status",
+      description:
+        "Print the status of keys: check keys",
+    },
+  ];
+  
