@@ -14,8 +14,13 @@
 
   </a>
 </p>-->
+<p align="center">
 
-![logo key](https://github.com/ululab/strapi-keys/assets/92667330/d38d136b-b32d-4e76-afc5-c87417d30dfc)
+  <img src="https://github.com/ululab/strapi-keys/assets/92667330/d38d136b-b32d-4e76-afc5-c87417d30dfc" width="80%">
+
+</p>
+
+
 
 <h2 align="center"align="center">automatic .env file keys</h2>
 
