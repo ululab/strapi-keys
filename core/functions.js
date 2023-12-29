@@ -214,7 +214,7 @@ function prepareNewContentEnv() {
 function writeEnvFile() {
     let envContent = prepareNewContentEnv();
     // Write the updated content to the .env file
-    fs.writeFileSync('.env', envContent);
+    if (!options.dryrun) fs.writeFileSync('.env', envContent);
     // Log a message indicating the keys generated and set in the .env file
     let log = !options.clear ? 'Generated and set keys in the .env file' : 'Cleared keys in the .env file';
     console.log(log);
