@@ -29,7 +29,6 @@
     "security"
   ],
   "author": "Ululab",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ululab/strapi-keys/issues"
   },
