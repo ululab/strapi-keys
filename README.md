@@ -17,7 +17,9 @@
     
 <br />
 
-![image](https://github-production-user-asset-6210df.s3.amazonaws.com/92667330/293379276-d6225bfb-c668-4ca5-9407-3d5a15029835.gif)
+`$ npm run strapi-keys -- --refresh `
+
+![key-v2](https://github.com/ululab/strapi-keys/assets/92667330/11de6487-ba16-496b-a049-2395e5e51f54)
 
 This is a great and convenient way to generate a random string in base64.
 
