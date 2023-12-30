@@ -150,14 +150,13 @@ function getExistingKeyValue(inputString) {
 }
 
 /**
- * Processes the .env file with generated or updated keys.
+ * Processes the .env file with generated or updated keys
+ * 
+ * @return {void}
  */
 function prepareNewContentEnv() {
   // Read the content of the .env file
   let content = readEnvFile();
-
-  // Log trimmed content lines (for debugging or informational purposes)
-  // console.log(content.split('\n').map((line) => { return line.trim() }));
 
   // Process the content to update the keys
   content = content
@@ -213,7 +212,9 @@ function prepareNewContentEnv() {
 }
 
 /**
- * Updates the .env file with generated or updated keys.
+ * Updates the .env file with generated or updated keys
+ * 
+ * @return {void}
  */
 function writeEnvFile() {
   let envContent = prepareNewContentEnv();
@@ -236,6 +237,7 @@ function writeEnvFile() {
 
 /**
  * Prints the list of available commands with the different options
+ * 
  * @return {void}
  */
 function help() {
@@ -248,6 +250,7 @@ function help() {
 
 /**
  * Check status keys in .env
+ * 
  * @return {void}
  */
 function checkStatusKeysEnv() {
@@ -277,10 +280,13 @@ function checkStatusKeysEnv() {
   } else {
     console.log("OK env key variables");
   }
-
-  return;
 }
 
+/**
+ * Prints the current keys of the .env file
+ * 
+ * @return {void}
+ */
 function printKeyVariablesInEnvFile() {
   let existingEnvVariables = envVariablesFile();
   envKeysToGenerate.forEach((keyConfig) => {
@@ -289,6 +295,11 @@ function printKeyVariablesInEnvFile() {
   });
 }
 
+/**
+ * Prints the generated keys
+ * 
+ * @return {void}
+ */
 function printGeneratedEnvVariables() {
   envKeysToGenerate.forEach((e) => {
     console.log(`${e.name}=${e.value}`);
