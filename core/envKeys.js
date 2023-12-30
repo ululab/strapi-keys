@@ -10,7 +10,8 @@ module.exports = [
     value: null,
     processed: false,
   },
-  { name: "API_TOKEN_SALT", 
+  { 
+    name: "API_TOKEN_SALT", 
     type: "string:31", 
     value: null, 
     processed: false 
@@ -27,7 +28,8 @@ module.exports = [
     value: null,
     processed: false,
   },
-  { name: "JWT_SECRET", 
+  { 
+    name: "JWT_SECRET", 
     type: "string:31", 
     value: null, 
     processed: false 
