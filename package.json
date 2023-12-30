@@ -1,6 +1,6 @@
 {
   "name": "strapi-keys",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "Automatic management of keys in .env file",
   "main": "main.js",
