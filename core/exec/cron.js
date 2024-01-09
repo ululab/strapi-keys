@@ -25,7 +25,7 @@ function worker(commandToExcute = '') {
             }
         }); 
     } catch (error) {
-        console.error(error.toString());
+        console.error(error);
     }
     
 }
