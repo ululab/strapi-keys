@@ -5,6 +5,7 @@ const COMMAND_DEFAULT = 'npm run strapi-keys --';
 function worker(commandToExcute = '') {
 
     try {
+        
         if (!commandToExcute.startsWith(COMMAND_DEFAULT)) {
             commandToExcute = `${COMMAND_DEFAULT} ${commandToExcute}`.trim()
         }
