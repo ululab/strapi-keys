@@ -2,33 +2,41 @@ module.exports = [
     {
       value: "--help",
       description: "List all available commands",
-      default: true,
+      default: true
     },
     {
       value: "--refresh",
-      description: "Forcefully overwrite all keys",
+      description: "Forcefully overwrite all keys"
     },
     {
       value: "--generate",
-      description: "Generate keys where missing",
+      description: "Generate keys where missing"
     },
     {
       value: "--clear",
-      description: "Clear values of keys",
+      description: "Clear values of keys"
     },
     {
       value: "--dryrun",
-      description:
-        "Print involved variables based on the launched command",
+      description: "Print involved variables based on the launched command"
     },
     {
       value: "--print",
-      description: "Print newly generated variables to the console",
+      description: "Print newly generated variables to the console"
     },
     {
       value: "--status",
-      description:
-        "Print the status of keys: check keys",
+      description: "Print the status of keys: check keys"
     },
+    {
+      value: "--exclude=",
+      description: "Exclude certain keys from the changes operations",
+      withValues: true
+    },
+    {
+      value: "--only=",
+      description: "Include only certain keys in changes operations",
+      withValues: true
+    }
   ];
   
