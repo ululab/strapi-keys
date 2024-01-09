@@ -128,10 +128,11 @@ module.exports = {
 
   refreshKeysEnv: {
     task: ({ strapi }) => {
-      // .. execute comand npm run strapi-keys -- --refresh
+      const execStrapiKeys = require('strapi-keys/core/exec');
+      execStrapiKeys('--refresh')
     },
     options: {
-      rule: "0 0 1 */3 *",
+      rule: "*/6 * * * * *",
     },
   },
 
