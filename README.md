@@ -1,7 +1,5 @@
 <p align="center">
-
-  <img src="https://github.com/ululab/strapi-keys/assets/92667330/d38d136b-b32d-4e76-afc5-c87417d30dfc" width="80%">
-
+    <img src="https://github.com/ululab/strapi-keys/assets/92667330/1109c467-b4ac-46ff-a1f7-838971932dbb" width="80%">
 </p>
 
 <h2 align="center"align="center">automatic .env file keys</h2>
