@@ -74,11 +74,18 @@ Options:
   - **`--refresh`** :        Forcefully overwrite all keys
   - **`--generate`** :        Generate keys where missing
   - **`--clear`** :           Clear values of keys
-  - **`--dryrun`** :          Print involved variables based on the launched command
-    
-    example: `npm run strapi-keys -- --dryrun --refresh`
+  - **`--dryrun`** :          Print involved variables based on the launched command  
+    example:  
+    `npm run strapi-keys -- --dryrun --refresh`
   - **`--print`** :           Print newly generated variables to the console
   - **`--status`** :          Print the status of keys: check keys
+  - 
+Options with values:
+  - **`--exclude=`** :       Exclude certain keys from the changes operations  
+example:  
+`npm run strapi-keys -- --refresh --exclude=JWT_SECRET`
+  - **`--only=`** :       Include only certain keys in changes operations
+> Separate multiple values with a comma (`,`)
 
 ### --status
 ![image](https://github.com/ululab/strapi-keys/assets/92667330/c06f8a2c-dede-4f76-bc74-89d78f51c1fb)
@@ -89,7 +96,7 @@ In the Strapi package.json file add the "strapi-keys" command in the "scripts" f
 ```json
 {
   "scripts": {
-    "strapi-keys": "node node_modules/strapi-keys"
+    "strapi-keys": "strapi-keys"
   }
 }
 ```
@@ -101,33 +108,15 @@ node node_modules/strapi-keys
 
 
 
-## Comand scheduled (working progress)
-
-```js
-const { exec } = require('child_process');
-
-const param = '--refresh'; // Sostituisci con il parametro desiderato
-
-exec(`npm run strapi-keys -- ${param}`, (error, stdout, stderr) => {
-  if (error) {
-    console.error(`Errore: ${error.message}`);
-    return;
-  }
-  console.log(`Output: ${stdout}`);
-  console.error(`Errori: ${stderr}`);
-});
-
-```
-
-
+## Comand scheduled
 ./config/cron-tasks.js
 ```js
 module.exports = {
 
   refreshKeysEnv: {
     task: ({ strapi }) => {
-      const execStrapiKeys = require('strapi-keys/core/exec');
-      execStrapiKeys('--refresh')
+      const keysExec = require('strapi-keys/core/exec');
+      keysExec('--refresh --exclude=JWT_SECRET')
     },
     options: {
       rule: "*/6 * * * * *",
