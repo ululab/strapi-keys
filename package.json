@@ -4,6 +4,9 @@
   "license": "MIT",
   "description": "Automatic management of keys in .env file",
   "main": "main.js",
+  "bin":  {
+    "strapi-keys": "main.js"
+  },
   "scripts": {
     "strapi-keys": "node main",
     "keys-status": "node main --status",
