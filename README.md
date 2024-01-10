@@ -143,6 +143,9 @@ module.exports = ({ env }) => ({
 });
 
 ```
-
+Set the variable in the .env file
+```env
+CRON_ENABLED=true
+```
 
 
