@@ -39,10 +39,17 @@ function main() {
   envKeysToGenerate.forEach((keyConfig) => {
     // If the --refresh option is not set, retrieve existing value for the key; otherwise, use undefined
     let keyValueOrNull =
-      (options.refresh || options.print) && !options.exclude.includes(keyConfig.name)
+      (options.refresh || options.print) && (!options.exclude.includes(keyConfig.name))
         ? undefined
         : existingEnvVariables[keyConfig.name];
 
+    if(options.only.length > 0){
+      if(options.only.includes(keyConfig.name))
+        keyValueOrNull = undefined
+      else{
+        keyValueOrNull = existingEnvVariables[keyConfig.name]
+      }
+    }
     // Generate a key or update it if missing
     const generatedValue = options.clear
         ? ""
