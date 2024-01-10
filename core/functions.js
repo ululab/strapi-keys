@@ -152,7 +152,7 @@ function getExistingKeyValue(inputString) {
 /**
  * Processes the .env file with generated or updated keys
  * 
- * @return {void}
+ * @return {string}
  */
 function prepareNewContentEnv() {
   // Read the content of the .env file
