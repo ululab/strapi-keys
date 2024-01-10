@@ -79,7 +79,7 @@ Options:
     `npm run strapi-keys -- --dryrun --refresh`
   - **`--print`** :           Print newly generated variables to the console
   - **`--status`** :          Print the status of keys: check keys
-  - 
+    
 Options with values:
   - **`--exclude=`** :       Exclude certain keys from the changes operations  
 example:  
