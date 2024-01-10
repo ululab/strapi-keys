@@ -75,16 +75,20 @@ Options:
   - **`--generate`** :        Generate keys where missing
   - **`--clear`** :           Clear values of keys
   - **`--dryrun`** :          Print involved variables based on the launched command  
-    example:  
-    `npm run strapi-keys -- --dryrun --refresh`
-  - **`--print`** :           Print newly generated variables to the console
-  - **`--status`** :          Print the status of keys: check keys
+  example:
+    ```npm
+     npm run strapi-keys -- --dryrun --refresh
+    ```
+   - **`--print`** :           Print newly generated variables to the console
+   - **`--status`** :          Print the status of keys: check keys
     
 Options with values:
-  - **`--exclude=`** :       Exclude certain keys from the changes operations  
-example:  
-`npm run strapi-keys -- --refresh --exclude=JWT_SECRET`
-  - **`--only=`** :       Include only certain keys in changes operations
+- **`--exclude=`** :       Exclude certain keys from the changes operations  
+  example:  
+    ```npm
+  npm run strapi-keys -- --refresh --exclude=JWT_SECRET
+    ```
+- **`--only=`** :       Include only certain keys in changes operations
 > Separate multiple values with a comma (`,`)
 
 ### --status
