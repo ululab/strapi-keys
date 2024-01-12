@@ -6,6 +6,8 @@ const options = require("./command/options");
 
 /**
  * Handles the process of generating or updating environment keys.
+ * 
+ * @returns {void}
  */
 function main() {
   /**
@@ -50,6 +52,7 @@ function main() {
         ? undefined
         : existingEnvVariables[keyConfig.name];
     }
+    
     // Generate a key or update it if missing
     const generatedValue = options.clear
         ? ""
@@ -66,8 +69,8 @@ function main() {
   // If the --print option is set, print out the generated keys (it will not set them into .env file)
   if (options.print) {
     functions.printGeneratedEnvVariables();
-    return;
   }
+
   // Write the updated keys to the .env file
   if (options.refresh || options.generate || options.clear) {
     functions.writeEnvFile();
