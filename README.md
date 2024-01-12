@@ -123,14 +123,12 @@ module.exports = {
       keysExec('--refresh --exclude=JWT_SECRET')
     },
     options: {
-      rule: "*/6 * * * * *",
+      rule: "0 0 1 */2 * *",
     },
   },
 
 };
-
 ```
-
 ./config/server.js
 ```js
 const cronTask = require("./cron-tasks")
@@ -147,5 +145,9 @@ Set the variable in the .env file
 ```env
 CRON_ENABLED=true
 ```
+
+This functionality is supported and documented in:
+- [Cron-style Scheduling](https://www.npmjs.com/package/node-schedule)
+- [Strapi cron configuration](https://docs.strapi.io/dev-docs/configurations/cron)
 
 
