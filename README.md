@@ -5,8 +5,8 @@
 <h2 align="center"align="center">automatic .env file keys</h2>
 
 <p align="center">
-  <h3 align="center">Generate and manage keys quickly, conveniently and securely <br />
-  in the .env file of your strapi app</h3>
+  <h3 align="center">🔐Generate and manage keys quickly, conveniently and securely <br />
+  in the .env file of your strapi app 🚀</h3>
 </p>
 
 <p align="center">
