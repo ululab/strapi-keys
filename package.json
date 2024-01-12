@@ -13,7 +13,8 @@
     "keys-gen": "node main --generate",
     "keys-refresh": "node main --refresh",
     "keys-clear": "node main --clear",
-    "keys-print": "node main --print"
+    "keys-print": "node main --print",
+    "keys-help": "node main --help"
   },
   "repository": {
     "type": "git",
