@@ -38,6 +38,8 @@ npm i strapi-keys
 
 With the command `npm run strapi-keys` to exute alias comand `npm run strapi-keys -- --help`
 
+⏳ Creating .env file based on .env.example if it exists, otherwise it creates or updates it with all the necessary keys  
+
 ```bash
 npm run strapi-keys -- --generate
 ```
