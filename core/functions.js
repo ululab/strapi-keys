@@ -152,7 +152,7 @@ function getExistingKeyValue(inputString) {
 /**
  * Processes the .env file with generated or updated keys
  * 
- * @return {string}
+ * @returns {string}
  */
 function prepareNewContentEnv() {
   // Read the content of the .env file
@@ -214,7 +214,7 @@ function prepareNewContentEnv() {
 /**
  * Updates the .env file with generated or updated keys
  * 
- * @return {void}
+ * @returns {void}
  */
 function writeEnvFile() {
   let envContent = prepareNewContentEnv();
@@ -238,7 +238,7 @@ function writeEnvFile() {
 /**
  * Prints the list of available commands with the different options
  * 
- * @return {void}
+ * @returns {void}
  */
 function help() {
   console.log(`Usage: npm run strapi-keys -- [options]`);
@@ -255,7 +255,7 @@ function help() {
 /**
  * Check status keys in .env
  * 
- * @return {void}
+ * @returns {void}
  */
 function checkStatusKeysEnv() {
   let existingEnvVariables = envVariablesFile();
@@ -289,7 +289,7 @@ function checkStatusKeysEnv() {
 /**
  * Prints the current keys of the .env file
  * 
- * @return {void}
+ * @returns {void}
  */
 function printKeyVariablesInEnvFile() {
   let existingEnvVariables = envVariablesFile();
@@ -302,7 +302,7 @@ function printKeyVariablesInEnvFile() {
 /**
  * Prints the generated keys
  * 
- * @return {void}
+ * @returns {void}
  */
 function printGeneratedEnvVariables() {
   envKeysToGenerate.forEach((e) => {

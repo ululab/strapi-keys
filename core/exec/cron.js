@@ -6,7 +6,7 @@ const COMMAND_DEFAULT = 'npm run strapi-keys --';
  * Function for scheduled jobs or command execution using package in code
  * 
  * @param {string} commandToExcute
- * @return {void}
+ * @returns {void}
  */
 function worker(commandToExcute = '') {
 
