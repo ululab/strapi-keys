@@ -223,15 +223,15 @@ function writeEnvFile() {
     fs.writeFileSync(".env", envContent);
     // Log a message indicating the keys generated and set in the .env file
     console.log("Generated and set keys in the .env file");
-  } else if (!options.clear && options.dryrun) {
-    // Log a message indicating the keys generated but not setted in the .env file
-    console.log("\nGenerated keys:");
-    printGeneratedEnvVariables();
   } else if (options.clear && !options.dryrun) {
     // Write the updated content to the .env file
     fs.writeFileSync(".env", envContent);
     // Log a message indicating the keys have been cleared and setted in the .env file
     console.log("Cleared keys in the .env file");
+  } else if (options.dryrun) {
+    // Log a message indicating the keys generated but not setted in the .env file
+    console.log("\nGenerated keys:");
+    printGeneratedEnvVariables();
   }
 }
 
@@ -243,7 +243,11 @@ function writeEnvFile() {
 function help() {
   console.log(`Usage: npm run strapi-keys -- [options]`);
   console.log(`Options:`);
-  optionsCommand.forEach((e) => {
+  optionsCommand.filter(e => !e.withValues).forEach((e) => {
+    console.log(`  ${e.value.padEnd(16, " ")} ${e.description}`);
+  });
+  console.log(`Options with values:`);
+  optionsCommand.filter(e => e.withValues).forEach((e) => {
     console.log(`  ${e.value.padEnd(16, " ")} ${e.description}`);
   });
 }
