@@ -83,6 +83,7 @@ Options:
     ```
    - **`--print`** :           Print newly generated variables to the console
    - **`--status`** :          Print the status of keys: check keys
+   - **`--rand`** :  Print a single crypto key in base64           
     
 Options with values:
 - **`--exclude=`** :       Exclude certain keys from the changes operations  
