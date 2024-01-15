@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const crypto = require("crypto");
 const envKeysToGenerate = require("./envKeys");
 const optionsCommand = require("./command/list");
@@ -53,7 +54,10 @@ function checkKeyType(value, type) {
 }
 
 /**
- * Reads the content of the .env file.
+ * Reads the contents of the file:
+ * - .env.example if it exists (in strapi app)
+ * - otherwise .env.example (in the strapi app)
+ * Returns the contents of the read file.
  *
  * @returns {string|object} - Content of the .env file or an empty object if an error occurs.
  */
@@ -68,16 +72,41 @@ function readEnvFile() {
 }
 
 /**
- * Reads the content of the .env.example file if .env doens't exist (or if it's not found).
- *
+ * Reads the contents of the file:
+ * - .env.example if it exists (in strapi app)
+ * - otherwise default .env.example (package native)
+ * Returns the contents of the read file.
+ * 
  * @returns {string|object} - Content of the .env.example file or an empty object if an error occurs.
  */
 function readEnvExampleFile() {
+  const pathEnvExamplePkg = path.resolve(__dirname, './../.env.example')
   try {
     return fs.readFileSync(".env.example", "utf-8");
   } catch (error) {
     console.error("Error while reading the .env.example file - ",  error.message);
-    return fs.readFileSync(require.resolve("strapi-keys/.env.example"), "utf-8");
+    try {
+      return fs.readFileSync(pathEnvExamplePkg, "utf-8");
+    } catch (err) {
+      console.error("Error while reading the .env.example file in npm package - ",  err.message);
+      return ""
+    }
+  }
+}
+
+/**
+ * Check if the file exists
+ * 
+ * @returns {boolean}
+ */
+function fileExists(filePath) {
+  try {
+    // Try opening the file in read-only mode
+    fs.accessSync(filePath, fs.constants.R_OK);
+    return true;
+  } catch (error) {
+    // If an error occurs, the file does not exist or is not accessible
+    return false;
   }
 }
 
