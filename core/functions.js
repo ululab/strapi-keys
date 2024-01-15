@@ -77,7 +77,7 @@ function readEnvExampleFile() {
     return fs.readFileSync(".env.example", "utf-8");
   } catch (error) {
     console.error("Error while reading the .env.example file - ",  error.message);
-    return "";
+    return fs.readFileSync(require.resolve("strapi-keys/.env.example"), "utf-8");
   }
 }
 
