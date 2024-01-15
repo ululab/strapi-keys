@@ -59,7 +59,7 @@ function checkKeyType(value, type) {
  * - otherwise .env.example (in the strapi app)
  * Returns the contents of the read file.
  *
- * @returns {string|object} - Content of the .env file or an empty object if an error occurs.
+ * @returns {string|object}
  */
 function readEnvFile() {
   try {
@@ -77,20 +77,34 @@ function readEnvFile() {
  * - otherwise default .env.example (package native)
  * Returns the contents of the read file.
  * 
- * @returns {string|object} - Content of the .env.example file or an empty object if an error occurs.
+ * @returns {string}
  */
 function readEnvExampleFile() {
-  const pathEnvExamplePkg = path.resolve(__dirname, './../.env.example')
+  // Prevent if to check status
+  if (options.status) {
+    return;
+  }
+
   try {
     return fs.readFileSync(".env.example", "utf-8");
   } catch (error) {
     console.error("Error while reading the .env.example file - ",  error.message);
-    try {
-      return fs.readFileSync(pathEnvExamplePkg, "utf-8");
-    } catch (err) {
-      console.error("Error while reading the .env.example file in npm package - ",  err.message);
-      return ""
-    }
+    return readEnvExampleFileInPkg();
+  }
+}
+
+/**
+ * Contents of the default .env.example file in this package
+ * 
+ * @returns {string}
+ */
+function readEnvExampleFileInPkg() {
+  const pathEnvExamplePkg = path.resolve(__dirname, './../.env.example');
+  try {
+    return fs.readFileSync(pathEnvExamplePkg, "utf-8");
+  } catch (error) { // Prevent
+    console.error("Error while reading the .env.example file in npm package - ",  error.message);
+    return ""
   }
 }
 
