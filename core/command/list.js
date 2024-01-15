@@ -29,6 +29,10 @@ module.exports = [
       description: "Print the status of keys: check keys"
     },
     {
+      value: "--rand",
+      description: "Print a random key",
+    },
+    {
       value: "--exclude=",
       description: "Exclude certain keys from the changes operations",
       withValues: true
