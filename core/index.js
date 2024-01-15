@@ -75,6 +75,12 @@ function main() {
   if (options.refresh || options.generate || options.clear) {
     functions.writeEnvFile();
   }
+
+  // If --print a random key
+  if (options.rand) {
+    let randKey = functions.generateKeyIfMissing(undefined, 'string:31');
+    console.log(randKey)
+  }
 }
 
 module.exports = main;
