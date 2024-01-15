@@ -30,7 +30,7 @@ module.exports = [
     },
     {
       value: "--rand",
-      description: "Print a random key",
+      description: "Print a single crypto key in base64",
     },
     {
       value: "--exclude=",
