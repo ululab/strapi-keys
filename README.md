@@ -95,7 +95,7 @@ Options with values:
 ```npm
 npm run strapi-keys -- --status
 ```
-![image](https://github.com/ululab/strapi-keys/assets/92667330/2179111c-07e2-4cc4-83fe-d75b86842157)
+![image](https://github.com/ululab/strapi-keys/assets/92667330/33d53b0f-5853-4005-a8de-43a59a8ea81d)
 
 ## Settings
 In the Strapi package.json file add the "strapi-keys" command in the "scripts" field:
