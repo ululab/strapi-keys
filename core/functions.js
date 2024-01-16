@@ -374,5 +374,6 @@ module.exports = {
   printGeneratedEnvVariables,
   printKeyVariablesInEnvFile,
   writeEnvFile,
+  createEnvExample,
   help,
 };
