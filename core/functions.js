@@ -80,13 +80,8 @@ function readEnvFile() {
     let content = fs.readFileSync(".env", "utf-8");
     return content ? content : readEnvExampleFile();
   } catch (error) {
-    if (error.code === 'ENOENT')
-    {
-      console.error("Error while reading the .env file - ", error.message);
-      fs.writeFileSync(".env", "", "utf-8")
-      return readEnvFile();
-    } 
-    console.error("An error occurred while reading the .env file - ", error.message);
+    console.error("Error while reading the .env file - ", error.message);
+    return readEnvExampleFile();
   }
 }
 
