@@ -84,7 +84,7 @@ function main() {
 
   // Create the .env.example file if run generate or refresh
   if (!options.dryrun && (options.generate || options.refresh)) {
-    createEnvExample()
+    functions.createEnvExample()
   }
 }
 
