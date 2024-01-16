@@ -92,8 +92,10 @@ Options with values:
 > Separate multiple values with a comma (`,`)
 
 ### --status
-![image](https://github.com/ululab/strapi-keys/assets/92667330/c06f8a2c-dede-4f76-bc74-89d78f51c1fb)
-
+```npm
+npm run strapi-keys -- --status
+```
+![image](https://github.com/ululab/strapi-keys/assets/92667330/2179111c-07e2-4cc4-83fe-d75b86842157)
 
 ## Settings
 In the Strapi package.json file add the "strapi-keys" command in the "scripts" field:
@@ -109,8 +111,6 @@ or run the command directly:
 ```bash
 node node_modules/strapi-keys
 ```
-
-
 
 ## Comand scheduled
 ./config/cron-tasks.js
