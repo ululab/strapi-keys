@@ -173,7 +173,7 @@ This functionality is supported and documented in:
 
 ## Advantages
 Run `npm install strapi-keys` for:
-- ⏳ Save time on setting up your strapi apps
+- ⏳ Save time on setting up your strapi apps (.env and .env.example files)
 - 🛠 Automate key creation and management
 - 🔑 Safe and ready-to-use keys
 
