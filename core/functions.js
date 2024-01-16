@@ -109,11 +109,15 @@ function readEnvExampleFileInPkg() {
 }
 
 /**
- * Create a default .env.example file in strapi app
+ * Create a default .env.example file in your strapi app if one doesn't already exist
  * 
- * @returns {boolean}
+ * @returns {boolean|null}
  */
-function createEnvExample() {
+function createEnvExampleIfMissing() {
+  if (fileExists(".env.example")) {
+    return null;
+  }
+
   try {
     fs.writeFileSync(".env.example", readEnvExampleFileInPkg());
     return true;
@@ -374,6 +378,6 @@ module.exports = {
   printGeneratedEnvVariables,
   printKeyVariablesInEnvFile,
   writeEnvFile,
-  createEnvExample,
+  createEnvExampleIfMissing,
   help,
 };
