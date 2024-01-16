@@ -33,12 +33,9 @@ It uses the `crypto module` of Node.js, which in turn can depend on specific imp
 ```bash
 npm i strapi-keys 
 ```
+
 ## Start to generate keys:
-
-
-With the command `npm run strapi-keys` to exute alias comand `npm run strapi-keys -- --help`
-
-⏳ Creating .env file based on .env.example if it exists, otherwise it creates or updates it with all the necessary keys  
+⏳Generating a default .env file complete with variables, in the absence of .env or .env.example files 
 
 ```bash
 npm run strapi-keys -- --generate
@@ -72,7 +69,7 @@ npm run strapi-keys -- --help
 Usage: npm run strapi-keys -- [options]
 
 Options:
-  - **`--help`** :           List all available commands
+  - **`--help`** :           List all available commands (default option)
   - **`--refresh`** :        Forcefully overwrite all keys
   - **`--generate`** :        Generate keys where missing
   - **`--clear`** :           Clear values of keys
@@ -155,7 +152,7 @@ This functionality is supported and documented in:
 - [Strapi cron configuration](https://docs.strapi.io/dev-docs/configurations/cron)
 - [Node.js Crypto Module](https://nodejs.org/api/crypto.html)
 
-# 💡Features list💡
+## 💡Features list💡
 **`v1.0.0`**
 - ⏳ Creating .env file based on .env.example if it exists, otherwise it creates or updates it with all the necessary keys
 - ⚙️ Updating keys in "soft" and "strict" modes ( `--generate` and `--refresh`)
