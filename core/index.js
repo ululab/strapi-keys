@@ -39,9 +39,14 @@ function main() {
 
   // Generate or update keys for missing environment variables
   envKeysToGenerate.forEach((keyConfig) => {
-    // If the --refresh option is not set, retrieve existing value for the key; otherwise, use undefined
+    /**
+     * If the --refresh or --print option is not set, retrieve existing value for the key if valid; 
+     * otherwise, use undefined.
+     * In case of exclusion, the original value is maintained
+     */
     let keyValueOrNull =
-      (options.refresh || options.print) &&
+      (options.refresh || options.print || 
+      (options.generate && !functions.checkKeyType(existingEnvVariables[keyConfig.name], keyConfig.type))) &&
       !options.exclude.includes(keyConfig.name)
         ? undefined
         : existingEnvVariables[keyConfig.name];
