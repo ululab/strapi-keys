@@ -134,6 +134,7 @@ function createEnvExampleIfMissing() {
 
   try {
     fs.writeFileSync(".env.example", readEnvExampleFileInPkg());
+    console.log('')
     return true;
   } catch (error) {
     return false;
@@ -297,12 +298,12 @@ function writeEnvFile() {
     // Write the updated content to the .env file
     fs.writeFileSync(".env", envContent);
     // Log a message indicating the keys generated and set in the .env file
-    console.log("Generated and set keys in the .env file");
+    console.log("Successfully generated and set keys in .env file");
   } else if (options.clear && !options.dryrun) {
     // Write the updated content to the .env file
     fs.writeFileSync(".env", envContent);
     // Log a message indicating the keys have been cleared and setted in the .env file
-    console.log("Cleared keys in the .env file");
+    console.log("Successfully cleared keys in .env file");
   } else if (options.dryrun) {
     // Log a message indicating the keys generated but not setted in the .env file
     console.log("\nGenerated keys:");
@@ -352,12 +353,11 @@ function checkStatusKeysEnv() {
   console.table(statusKeys, ["KEY NAME", "STATUS", "OK"]);
 
   if (statusKeys.find((e) => !e.OK)) {
-    console.log("KO env key variables");
     console.log(
-      'There are some error in the environment key, please run "npm run strapi-keys"'
+      'KO: There are some errors in the environment keys\nYou should run "npm run strapi-keys -- --generate"'
     );
   } else {
-    console.log("OK env key variables");
+    console.log("OK: Status of keys checked successfully!");
   }
 }
 
