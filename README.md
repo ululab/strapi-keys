@@ -167,7 +167,7 @@ This functionality is supported and documented in:
 **`v1.2.2`**
 - 🎲 Get a single crypto key in base64 (`--rand`)
 - 🛠 Generating a **default _.env_** file complete with variables, in the absence of _.env_ or _.env.example_ files
-- 🧩 Adding to a default .env.example file if it does not exist
+- 🧩 Adding to a **default _.env.example_** file if it does not exist
 - 🔏 `--generate` also updates invalid keys, even if they are already set
 - 🩺 Improved key quality check (`--status`)
 
