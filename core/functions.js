@@ -38,7 +38,7 @@ function generateKeyIfMissing(existingValue, type) {
  *
  * @param {string|null|undefined} value
  * @param {string} type
- * @returns
+ * @returns {boolean}
  */
 function checkKeyType(value, type) {
   if (!value) {
@@ -47,10 +47,24 @@ function checkKeyType(value, type) {
 
   if (type.startsWith("array")) {
     let strings = value.split(",");
-    return strings.every((str) => typeof str === "string");
+    return strings.every((str) => checkKeyType(str, 'string'));
   }
 
-  return true;
+  return isBase64(value);
+}
+
+/**
+ * Tests whether a string is base64 encoded
+ *
+ * @param {string} str
+ * @returns {boolean}
+ */
+function isBase64(str) {
+  try {
+      return btoa(atob(str)) === str;
+  } catch (e) {
+      return false;
+  }
 }
 
 /**
@@ -374,6 +388,7 @@ function printGeneratedEnvVariables() {
 module.exports = {
   envVariablesFile,
   generateKeyIfMissing,
+  checkKeyType,
   checkStatusKeysEnv,
   printGeneratedEnvVariables,
   printKeyVariablesInEnvFile,
