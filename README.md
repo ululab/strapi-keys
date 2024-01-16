@@ -166,8 +166,7 @@ This functionality is supported and documented in:
 
 **`v1.2.2`**
 - 🎲 Get a single crypto key in base64 (`--rand`)
-- 🛠 Generating a **default** .env file complete with variables, in the absence of .env or .env.example files ✅  
-- 🔥**BugFix** read only file .env in the strapi app whe run `--status`, excluding all other files🩹
+- 🛠 Generating a **default** .env file complete with variables, in the absence of .env or .env.example files
 
 ## Advantages
 Run `npm install strapi-keys` for:
@@ -175,4 +174,4 @@ Run `npm install strapi-keys` for:
 - 🛠 Automate key creation and management
 - 🔑 Safe and ready-to-use keys
 
-🎳 Good work!
+🎳Good work!🚀
