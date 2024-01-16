@@ -92,8 +92,10 @@ Options with values:
 > Separate multiple values with a comma (`,`)
 
 ### --status
-![image](https://github.com/ululab/strapi-keys/assets/92667330/c06f8a2c-dede-4f76-bc74-89d78f51c1fb)
-
+```npm
+npm run strapi-keys -- --status
+```
+![image](https://github.com/ululab/strapi-keys/assets/92667330/2179111c-07e2-4cc4-83fe-d75b86842157)
 
 ## Settings
 In the Strapi package.json file add the "strapi-keys" command in the "scripts" field:
@@ -109,8 +111,6 @@ or run the command directly:
 ```bash
 node node_modules/strapi-keys
 ```
-
-
 
 ## Comand scheduled
 ./config/cron-tasks.js
@@ -166,11 +166,14 @@ This functionality is supported and documented in:
 
 **`v1.2.2`**
 - 🎲 Get a single crypto key in base64 (`--rand`)
-- 🛠 Generating a **default** .env file complete with variables, in the absence of .env or .env.example files
+- 🛠 Generating a **default _.env_** file complete with variables, in the absence of _.env_ or _.env.example_ files
+- 🧩 Adding to a default .env.example file if it does not exist
+- 🔏 `--generate` also updates invalid keys, even if they are already set
+- 🩺 Improved key quality check (`--status`)
 
 ## Advantages
 Run `npm install strapi-keys` for:
-- ⏳ Save time on setting up your strapi apps
+- ⏳ Save time on setting up your strapi apps (.env and .env.example files)
 - 🛠 Automate key creation and management
 - 🔑 Safe and ready-to-use keys
 
