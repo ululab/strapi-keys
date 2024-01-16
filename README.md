@@ -79,7 +79,7 @@ Options:
      npm run strapi-keys -- --dryrun --refresh
     ```
    - **`--print`** :           Print newly generated variables to the console
-   - **`--status`** :          Print the status of keys: check keys
+   - **`--status`** :          Print the status of keys: check the correct encoding of the key
    - **`--rand`** :  Print a single crypto key in base64           
     
 Options with values:
