@@ -81,6 +81,11 @@ function main() {
     let randKey = functions.generateKeyIfMissing(undefined, 'string:31');
     console.log(randKey)
   }
+
+  // Create the .env.example file if run generate or refresh
+  if (!options.dryrun && (options.generate || options.refresh)) {
+    createEnvExample()
+  }
 }
 
 module.exports = main;
