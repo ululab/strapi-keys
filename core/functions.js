@@ -59,7 +59,7 @@ function checkKeyType(value, type) {
  * - otherwise .env.example (in the strapi app)
  * Returns the contents of the read file.
  *
- * @returns {string|object}
+ * @returns {string}
  */
 function readEnvFile() {
   try {
@@ -82,7 +82,7 @@ function readEnvFile() {
 function readEnvExampleFile() {
   // Prevent if to check status
   if (options.status) {
-    return;
+    return '';
   }
 
   try {
