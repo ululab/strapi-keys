@@ -34,7 +34,7 @@ function generateKeyIfMissing(existingValue, type) {
 }
 
 /**
- * Check current status current variables keys
+ * Check and verify that the key is valid
  *
  * @param {string|null|undefined} value
  * @param {string} type
