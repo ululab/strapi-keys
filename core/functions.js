@@ -109,6 +109,20 @@ function readEnvExampleFileInPkg() {
 }
 
 /**
+ * Create a default .env.example file in strapi app
+ * 
+ * @returns {boolean}
+ */
+function createEnvExample() {
+  try {
+    fs.writeFileSync(".env.example", readEnvExampleFileInPkg());
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+/**
  * Check if the file exists
  * 
  * @returns {boolean}
