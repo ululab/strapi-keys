@@ -134,7 +134,6 @@ function createEnvExampleIfMissing() {
 
   try {
     fs.writeFileSync(".env.example", readEnvExampleFileInPkg());
-    console.log('')
     return true;
   } catch (error) {
     return false;
