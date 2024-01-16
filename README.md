@@ -54,11 +54,11 @@ APP_KEYS=
 ############################
 ## AFTER
 ############################
+APP_KEYS=KHeNRq3Oj1/9wcjYvgFv+b6+Pw==,WMe01U/lJ5uPqQSdpvTESZLFDA==,+jiQgyUIWjGlyebkCZnRxKAD5A==,W/5ZcNElldr8MmyyTSqevgYqJg==
 API_TOKEN_SALT=28LCPMgoHb/g3Dc5oIYwGo54WGDSknbQzuDZjPmmhA==
 ADMIN_JWT_SECRET=7dLaf0Aaw0mGUTrSPQSnj/tK9VdMSxPxhUxfIb36SA==
 TRANSFER_TOKEN_SALT=PgmIoztGd+V39JhTttjZ918T5znZpsuzfaEh5AemCA==
-JWT_SECRET=Kqps5CJSStj9AifWPSyA1Cm2upo1WagjAxGHr5WRqQ==
-APP_KEYS=Zmm6D18zm3io82ZuSVmkLlrNjQ==,pNRI6xlBjSWcuTIDr2zv1hL1fA==,DwW/7JnK6dFPeo9FIke6tsBx9g==,pINKR6f05Mxx8/fsECTnjAKAMg==
+JWT_SECRET=mH1Jnu9dGc+jShpKJPI399h4cVV0TyAjhos+6sUaeA==
 ```
 
 ### List command options:
