@@ -26,7 +26,7 @@ module.exports = [
     },
     {
       value: "--status",
-      description: "Print the status of keys: check keys"
+      description: "Print the status of keys: check the correct encoding of the keys"
     },
     {
       value: "--rand",
