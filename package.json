@@ -14,8 +14,13 @@
     "keys-refresh": "node main --refresh",
     "keys-clear": "node main --clear",
     "keys-print": "node main --print",
-    "keys-help": "node main --help"
+    "keys-help": "node main --help",
+    "keys-rand": "node main --rand",
+    "postinstall": "node postinstall.js"
   },
+  "files": [
+    "postinstall.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ululab/strapi-keys.git"
