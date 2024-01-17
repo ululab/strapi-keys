@@ -16,10 +16,10 @@
     "keys-print": "node main --print",
     "keys-help": "node main --help",
     "keys-rand": "node main --rand",
-    "postinstall": "node postinstall.js"
+    "postinstall": "node install/postinstall.js"
   },
   "files": [
-    "postinstall.js"
+    "./install/postinstall.js"
   ],
   "repository": {
     "type": "git",
