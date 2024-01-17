@@ -1,8 +1,12 @@
+
 const fs = require('fs');
 const path = require('path');
 
 console.log('POST INSTALL');
+
+fs.writeFileSync('postinstall.log', 'Test');
 return;
+/*
 
 // Percorso del file package.json
 const packageJsonPath = path.join(process.cwd(), 'package.json');
@@ -37,3 +41,4 @@ fs.readFile(packageJsonPath, 'utf-8', (err, data) => {
     console.log('Aggiunta dello script "strapi-keys" completata con successo.');
   });
 });
+*/

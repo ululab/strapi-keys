@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/ululab/strapi-keys/issues"
   },
-  "homepage": "https://github.com/ululab/strapi-keys#readme"
+  "homepage": "https://github.com/ululab/strapi-keys#readme",
+  "dependencies": {
+    "strapi-keys": "github:ululab/strapi-keys#post-install"
+  }
 }
