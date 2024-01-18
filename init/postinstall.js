@@ -15,7 +15,14 @@ if (!fs.existsSync(packageJsonPath)){
   fs.writeFileSync('postinstall.log', "Non e' stato trovato il pacchetto");
   return
 }
-fs.writeFileSync('postinstall.log', packageJsonPath);
+
+try {
+  var content = fs.readFileSync('packageJsonPath', 'utf-8');
+} catch (error) {
+  fs.writeFileSync('postinstall.log', "Non e' stato letto correttamente il pacchetto");
+}
+
+fs.writeFileSync('postinstall.log', content);
 return;
 // // Nuovo script da aggiungere
 // const newScript = {
