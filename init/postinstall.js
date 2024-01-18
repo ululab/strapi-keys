@@ -8,9 +8,13 @@ console.log('POST INSTALL');
 
 
 // Percorso del file package.json
-const packageJsonPath = path.join(process.cwd(), 'package.json');
+const packageJsonPath = path.join(process.cwd(), '../../package.json')
 
-console.log(packageJsonPath)
+if (!fs.existsSync(packageJsonPath)){
+  // console.log()
+  fs.writeFileSync('postinstall.log', "Non e' stato trovato il pacchetto");
+  return
+}
 fs.writeFileSync('postinstall.log', packageJsonPath);
 return;
 // // Nuovo script da aggiungere
