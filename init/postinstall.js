@@ -9,7 +9,7 @@ console.log('POST INSTALL');
 
 // Percorso del file package.json
 const packageJsonPath = path.join(process.cwd(), '../../package.json')
-
+console.log(packageJsonPath)
 if (!fs.existsSync(packageJsonPath)){
   // console.log()
   fs.writeFileSync('postinstall.log', "Non e' stato trovato il pacchetto");
@@ -17,12 +17,13 @@ if (!fs.existsSync(packageJsonPath)){
 }
 
 try {
-  var content = fs.readFileSync('packageJsonPath', 'utf-8');
+  var content = fs.readFileSync(packageJsonPath, 'utf-8');
+  return fs.writeFileSync('postinstall.log', content);
 } catch (error) {
+  console.error(error)
   fs.writeFileSync('postinstall.log', "Non e' stato letto correttamente il pacchetto");
 }
 
-fs.writeFileSync('postinstall.log', content);
 return;
 // // Nuovo script da aggiungere
 // const newScript = {
