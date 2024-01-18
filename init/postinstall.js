@@ -1,30 +1,25 @@
-
-const fs = require('fs');
-const path = require('path');
-
-console.log('POST INSTALL');
-
-// return;
-
+const fs = require("fs");
+const path = require("path");
 
 // Percorso del file package.json
-const packageJsonPath = path.join(process.cwd(), '../../package.json')
-console.log(packageJsonPath)
-if (!fs.existsSync(packageJsonPath)){
-  // console.log()
-  fs.writeFileSync('postinstall.log', "Non e' stato trovato il pacchetto");
-  return
+const packageJsonPath = path.join(process.cwd(), "../../package.json");
+
+if (!fs.existsSync(packageJsonPath)) {
+  fs.writeFileSync("postinstall.log", "package.json is not found");
+  return;
 }
 
 try {
-  var content = fs.readFileSync(packageJsonPath, 'utf-8');
-  return fs.writeFileSync('postinstall.log', content);
+  var content = fs.readFileSync(packageJsonPath, "utf-8");
+  return fs.writeFileSync("postinstall.log", content);
 } catch (error) {
-  console.error(error)
-  fs.writeFileSync('postinstall.log', "Non e' stato letto correttamente il pacchetto");
+  console.error(error);
+  return fs.writeFileSync(
+    "postinstall.log",
+    "package.json has not been properly read"
+  );
 }
 
-return;
 // // Nuovo script da aggiungere
 // const newScript = {
 //   scripts: {
