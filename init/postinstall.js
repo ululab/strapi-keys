@@ -2,10 +2,10 @@
 
 const fs = require("fs");
 const path = require("path");
-const FILE_LOG = 'strapi-keys.log';
 const SKIP_IF_EXISTS = false;
-const packageJsonPath = path.join(process.cwd(), './../../package.json');
-const packageJsonPathTest = path.join(process.cwd(), './../../package-test.json');
+const FILE_LOG = path.join(process.cwd(), './../../strapi-keys.log');;
+const PACKAGE_JSON_PATH = path.join(process.cwd(), './../../package.json');
+const PACKAGE_JSON_PATH_TEST = path.join(process.cwd(), './../../package-test.json');
 
 /**
  * 
@@ -26,13 +26,13 @@ function readPackageJson() {
 
   // const packageJsonPath = 'package.json';
 
-  if (!fs.existsSync(packageJsonPath)) {
+  if (!fs.existsSync(PACKAGE_JSON_PATH)) {
     writeLog('package.json is not found');
     return false;
   }
 
   try {
-    return fs.readFileSync(packageJsonPath, 'utf-8');
+    return fs.readFileSync(PACKAGE_JSON_PATH, 'utf-8');
   } catch (error) {
     console.error(error);
     writeLog("package.json has not been properly read " + error);
@@ -63,45 +63,15 @@ function prepareObjectScriptsPkg(){
   return contentPkgJson;
 }
 
-try {
-  fs.writeFileSync(packageJsonPathTest, JSON.stringify(prepareObjectScriptsPkg(), null, 2), 'utf-8');
-  console.log('[INFO] strapi-keys: update package.json')
-} catch (error) {
-  console.error(error)
-  console.log('[WARN] strapi-keys: not updated package.json')
+function mainPostInstall() {
+  try {
+    fs.writeFileSync(PACKAGE_JSON_PATH, JSON.stringify(prepareObjectScriptsPkg(), null, 2), 'utf-8');
+    console.log('[INFO] strapi-keys: update package.json')
+  } catch (error) {
+    console.error(error)
+    console.log('[WARN] strapi-keys: not updated package.json')
+    writeLog('[WARN] strapi-keys: not updated package.json')
+  }
 }
 
-console.log(prepareObjectScriptsPkg());
-
-writeLog(process.cwd())
-
-// // Nuovo script da aggiungere
-// const newScript = {
-//   scripts: {
-//     "strapi-keys": "strapi-keys"
-//   }
-// };
-
-// // Leggi il file package.json
-// fs.readFile(packageJsonPath, 'utf-8', (err, data) => {
-//   if (err) {
-//     console.error(`Errore nella lettura del file package.json: ${err}`);
-//     process.exit(1);
-//   }
-
-//   // Analizza il contenuto JSON
-//   const packageJson = JSON.parse(data);
-
-//   // Aggiungi il nuovo script
-//   Object.assign(packageJson, newScript);
-
-//   // Scrivi il file package.json aggiornato
-//   fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf-8', (err) => {
-//     if (err) {
-//       console.error(`Errore nella scrittura del file package.json: ${err}`);
-//       process.exit(1);
-//     }
-
-//     console.log('Aggiunta dello script "strapi-keys" completata con successo.');
-//   });
-// });
+mainPostInstall();
