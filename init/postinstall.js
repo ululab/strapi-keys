@@ -20,7 +20,7 @@ function writeLog(message = '') {
  */
 function readPackageJson() { 
 
-  const packageJsonPath = path.join(process.cwd(), 'package.json');
+  const packageJsonPath = path.join(process.cwd(), './../../package.json');
 
   // const packageJsonPath = 'package.json';
 
