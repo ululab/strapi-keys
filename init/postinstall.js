@@ -20,9 +20,9 @@ function writeLog(message = '') {
  */
 function readPackageJson() { 
 
-  // const packageJsonPath = path.join(process.cwd(), '../../package.json');
+  const packageJsonPath = path.join(process.cwd(), 'package.json');
 
-  const packageJsonPath = 'package.json';
+  // const packageJsonPath = 'package.json';
 
   if (!fs.existsSync(packageJsonPath)) {
     writeLog('package.json is not found');
