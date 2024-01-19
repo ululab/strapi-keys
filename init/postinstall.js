@@ -1,13 +1,17 @@
 const fs = require("fs");
 const path = require("path");
+const FILE_LOG = 'strapi-keys.log';
 
+function readPackageJson() { 
 
-function readPackageJson () { 
+  // const packageJsonPath = path.join(process.cwd(), '../../package.json');
 
-  const packageJsonPath = path.join(process.cwd(), '../../package.json');
+  const packageJsonPath = 'package.json';
+
   console.log(packageJsonPath);
+
   if (!fs.existsSync(packageJsonPath)) {
-    fs.writeFileSync("postinstall.log", "package.json is not found");
+    fs.writeFileSync(FILE_LOG, "package.json is not found");
     return;
   }
 
@@ -16,7 +20,7 @@ function readPackageJson () {
   } catch (error) {
     console.error(error);
     return fs.writeFileSync(
-      "postinstall.log",
+      FILE_LOG,
       "package.json has not been properly read" + error
     );
   }
@@ -33,26 +37,29 @@ function prepareNewScriptsContent(){
 
   const keyFound = Object.keys(scripts).find(key => key === 'strapi-keys');
 
-  if (!keyFound) { 
+  if (!keyFound)
     scripts['strapi-keys'] = 'strapi-keys'
-  }
+
   return scripts;
 }
 
-  function generateNewContent(){
-    return `"strapi-keys": "strapi-keys"`
-  }
+function generateNewContent(){
+  return `"strapi-keys": "strapi-keys"`
+}
 
-  function generateNewScripts(){
-    return `"scripts": { \n\t` + generateNewContent() + `\n}` 
-  }
+function generateNewScripts(){
+  return `"scripts": { \n\t` + generateNewContent() + `\n}` 
+}
 
-  try {
-    fs.writeFileSync("postinstall.log", JSON.stringify(prepareNewScriptsContent()));
-  } catch (error) {
-    console.error(error)
-  }
-  console.log(prepareNewScriptsContent());
+try {
+  fs.writeFileSync(FILE_LOG, JSON.stringify(prepareNewScriptsContent()));
+  console.log('strapi-keys: update package.json')
+} catch (error) {
+  console.error(error)
+  console.log('ERROR strapi-keys: not updated package.json')
+}
+
+console.log(prepareNewScriptsContent());
 
 return;
 // // Nuovo script da aggiungere
