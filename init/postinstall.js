@@ -4,7 +4,7 @@ const path = require("path");
 
 function readPackageJson () { 
 
-  const packageJsonPath = path.join(process.cwd(), "../../package.json");
+  const packageJsonPath = path.join(process.cwd(), '../../package.json');
 
   if (!fs.existsSync(packageJsonPath)) {
     fs.writeFileSync("postinstall.log", "package.json is not found");
@@ -17,7 +17,7 @@ function readPackageJson () {
     console.error(error);
     return fs.writeFileSync(
       "postinstall.log",
-      "package.json has not been properly read"
+      "package.json has not been properly read" + error
     );
   }
 }
