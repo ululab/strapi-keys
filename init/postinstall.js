@@ -5,7 +5,7 @@ const path = require("path");
 function readPackageJson () { 
 
   const packageJsonPath = path.join(process.cwd(), '../../package.json');
-
+  console.log(packageJsonPath);
   if (!fs.existsSync(packageJsonPath)) {
     fs.writeFileSync("postinstall.log", "package.json is not found");
     return;
@@ -21,7 +21,9 @@ function readPackageJson () {
     );
   }
 }
+  return readPackageJson();
 
+/*
 function prepareNewScriptsContent(){
 
   let { scripts } = JSON.parse(readPackageJson());
@@ -53,6 +55,7 @@ function prepareNewScriptsContent(){
     console.error(error)
   }
   console.log(prepareNewScriptsContent());
+  */
 
 return;
 // // Nuovo script da aggiungere
