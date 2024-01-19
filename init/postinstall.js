@@ -21,9 +21,7 @@ function readPackageJson () {
     );
   }
 }
-  return readPackageJson();
 
-/*
 function prepareNewScriptsContent(){
 
   let { scripts } = JSON.parse(readPackageJson());
@@ -55,7 +53,6 @@ function prepareNewScriptsContent(){
     console.error(error)
   }
   console.log(prepareNewScriptsContent());
-  */
 
 return;
 // // Nuovo script da aggiungere
