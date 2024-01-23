@@ -98,7 +98,7 @@ npm run strapi-keys -- --status
 ![image](https://github.com/ululab/strapi-keys/assets/92667330/33d53b0f-5853-4005-a8de-43a59a8ea81d)
 
 ## Settings (automatic)
-After installation, the "strapi-keys" command is automatically added to the "script" field in the Strapi package.json file:
+After installation, the "strapi-keys" command is automatically added to the "scripts" field in the Strapi package.json file:
 ```json
 {
   "scripts": {
