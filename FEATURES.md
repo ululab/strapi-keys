@@ -17,6 +17,10 @@
 - 🔏 `--generate` also updates invalid keys, even if they are already set
 - 🩺 Improved key quality check (`--status`)
 
+**`v1.2.3`**
+- ⚙️ Automatically insert the`strapi-keys` script into the package.json file of the strapi-app project after `npm i strapi-keys`  
+  🏇 so you can immediately run `npm run strapi-keys -- --generate`
+
 ## Advantages
 Run `npm install strapi-keys` for:
 - ⏳ Save time on setting up your strapi apps (.env and .env.example files)
