@@ -18,9 +18,6 @@
     "keys-rand": "node main --rand",
     "postinstall": "node init/postinstall.js"
   },
-  "files": [
-    "./init/postinstall.js"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ululab/strapi-keys.git"
