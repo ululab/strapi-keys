@@ -24,7 +24,7 @@ function writeLog(message = '') {
 function readPackageJson() { 
 
   if (!fs.existsSync(PACKAGE_JSON_PATH)) {
-    writeLog('package.json is not found');
+    writeLog('[WARN] package.json is not found');
     return false;
   }
 
@@ -32,7 +32,7 @@ function readPackageJson() {
     return fs.readFileSync(PACKAGE_JSON_PATH, 'utf-8');
   } catch (error) {
     console.error(error);
-    writeLog("package.json has not been properly read " + error);
+    writeLog("[WARN] package.json has not been properly read " + error);
     return false
   }
 }
