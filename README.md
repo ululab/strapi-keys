@@ -97,8 +97,8 @@ npm run strapi-keys -- --status
 ```
 ![image](https://github.com/ululab/strapi-keys/assets/92667330/33d53b0f-5853-4005-a8de-43a59a8ea81d)
 
-## Settings
-In the Strapi package.json file add the "strapi-keys" command in the "scripts" field:
+## Settings (automatic)
+In the Strapi package.json file the "strapi-keys" command is added in the "script" field:
 ```json
 {
   "scripts": {
@@ -106,7 +106,6 @@ In the Strapi package.json file add the "strapi-keys" command in the "scripts" f
   }
 }
 ```
-
 or run the command directly:
 ```bash
 node node_modules/strapi-keys
@@ -170,6 +169,10 @@ This functionality is supported and documented in:
 - 🧩 Adding to a **default _.env.example_** file if it does not exist
 - 🔏 `--generate` also updates invalid keys, even if they are already set
 - 🩺 Improved key quality check (`--status`)
+
+**`1.2.3`**
+⚙️ Automatically insert the `strapi-keys` script into the `package.json` file of the strapi-app project after `npm i strapi-keys`
+🏇 so you can immediately run npm run strapi-keys -- --generate
 
 ## Advantages
 Run `npm install strapi-keys` for:
