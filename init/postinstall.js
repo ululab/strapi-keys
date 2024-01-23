@@ -8,7 +8,7 @@ const PACKAGE_JSON_PATH = path.join(process.cwd(), './../../package.json');
 const PACKAGE_JSON_PATH_TEST = path.join(process.cwd(), './../../package-test.json');
 
 /**
- * Description
+ * Logging file 
  * 
  * @param {string} message
  * @returns {void}
@@ -18,6 +18,7 @@ function writeLog(message = '') {
 }
 
 /**
+ * Reading package.json file
  * 
  * @returns {string|bolean}
  */
@@ -38,6 +39,7 @@ function readPackageJson() {
 }
 
 /**
+ * Prepare the content to write in package.json
  * 
  * @returns {object}
  */
@@ -45,7 +47,7 @@ function prepareObjectScriptsPkg(){
 
   let contentPkgJson = JSON.parse(readPackageJson());
   
-  // In caso di package.json vuoto
+  // If package.json is empty
   if (!contentPkgJson || typeof contentPkgJson != 'object' || !contentPkgJson.scripts) {
     return  {
       scripts: {
@@ -54,12 +56,18 @@ function prepareObjectScriptsPkg(){
     }
   }
 
-  // Modifica forzata
+  // Forced change of "stapi-keys" 
   contentPkgJson.scripts['strapi-keys'] = 'strapi-keys'
 
   return contentPkgJson;
 }
 
+
+/**
+ * Add "stapi-keys" in scripting section in package.json file right after installing the package
+ * 
+ * @returns {void}
+ */ 
 function mainPostInstall() {
   try {
     fs.writeFileSync(PACKAGE_JSON_PATH, JSON.stringify(prepareObjectScriptsPkg(), null, 2), 'utf-8');
