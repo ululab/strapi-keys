@@ -98,7 +98,7 @@ npm run strapi-keys -- --status
 ![image](https://github.com/ululab/strapi-keys/assets/92667330/33d53b0f-5853-4005-a8de-43a59a8ea81d)
 
 ## Settings (automatic)
-In the Strapi package.json file the "strapi-keys" command is added in the "script" field:
+After installation, the "strapi-keys" command is automatically added to the "script" field in the Strapi package.json file:
 ```json
 {
   "scripts": {
@@ -150,29 +150,6 @@ This functionality is supported and documented in:
 - [Cron-style Scheduling](https://www.npmjs.com/package/node-schedule)
 - [Strapi cron configuration](https://docs.strapi.io/dev-docs/configurations/cron)
 - [Node.js Crypto Module](https://nodejs.org/api/crypto.html)
-
-## 💡Features list💡
-**`v1.0.0`**
-- ⏳ Creating .env file based on .env.example if it exists, otherwise it creates or updates it with all the necessary keys
-- ⚙️ Updating keys in "soft" and "strict" modes ( `--generate` and `--refresh`)
-- 🩺 Checking the status of the keys (`--status`)
-- 🔑 Printing new keys in the console (`--print`)
-- 🕹 Simulating `--refresh` `--clear` `--generate`  with `--dryrun`
-
-**`v1.2.0`**
-- 🎯  Excluding or including specific keys from edit operations with `--exclude` and `--only`
-- 📆  Scheduled cron task functionality `require('strapi-keys/core/exec')`
-
-**`v1.2.2`**
-- 🎲 Get a single crypto key in base64 (`--rand`)
-- 🛠 Generating a **default _.env_** file complete with variables, in the absence of _.env_ or _.env.example_ files
-- 🧩 Adding to a **default _.env.example_** file if it does not exist
-- 🔏 `--generate` also updates invalid keys, even if they are already set
-- 🩺 Improved key quality check (`--status`)
-
-**`1.2.3`**
-⚙️ Automatically insert the `strapi-keys` script into the `package.json` file of the strapi-app project after `npm i strapi-keys`
-🏇 so you can immediately run npm run strapi-keys -- --generate
 
 ## Advantages
 Run `npm install strapi-keys` for:
