@@ -19,7 +19,7 @@
 
 ![key-v2](https://github.com/ululab/strapi-keys/assets/92667330/11de6487-ba16-496b-a049-2395e5e51f54)
 
-This is a great and convenient way to generate a random crypto key in base64 (string).
+This is a great and convenient way to generate random base64 cryptographic keys.
 
 This approach is generally secure, as the Node.js cryptographic module is designed to provide secure encryption capabilities.
 
