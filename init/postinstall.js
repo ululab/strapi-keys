@@ -3,17 +3,18 @@
 const fs = require("fs");
 const path = require("path");
 const SKIP_IF_EXISTS = false;
-const FILE_LOG = path.join(process.cwd(), './../../strapi-keys.log');;
+const FILE_LOG_PATH = path.join(process.cwd(), './../../strapi-keys.log');;
 const PACKAGE_JSON_PATH = path.join(process.cwd(), './../../package.json');
 const PACKAGE_JSON_PATH_TEST = path.join(process.cwd(), './../../package-test.json');
 
 /**
+ * Description
  * 
  * @param {string} message
  * @returns {void}
  */
 function writeLog(message = '') {
-  fs.writeFileSync(FILE_LOG, `${message}\n`, { flag: 'a', encoding: 'utf-8'});
+  fs.writeFileSync(FILE_LOG_PATH, `${message}\n`, {flag: 'a', encoding: 'utf-8'});
 }
 
 /**
