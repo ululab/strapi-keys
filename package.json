@@ -8,6 +8,9 @@
     "strapi-keys": "main.js"
   },
   "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "node test/index.js",
     "strapi-keys": "node main",
     "keys-status": "node main --status",
     "keys-gen": "node main --generate",
